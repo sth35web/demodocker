@@ -93,3 +93,36 @@ docker run -d -P --network=front --network=back  --name front3  nginxsth
 
 docker run -d --network=back --name back1  nginxsth
 ```
+# 8. Registry
+
+```
+docker run -d -p 5000:5000 \
+ --restart=always \
+ --name registry  \ 
+ -e REGISTRY_STORAGE=swift \ 
+ -e REGISTRY_STORAGE_SWIFT_USERNAME=xxxxxxxxxxxx \  
+ -e REGISTRY_STORAGE_SWIFT_PASSWORD=xxxxxxxx \  
+ -e REGISTRY_STORAGE_SWIFT_AUTHURL=http://xxxxxxxxxxxxxxxxxx \  
+ -e REGISTRY_STORAGE_SWIFT_CONTAINER=docker \  
+ -v  /home/ubuntu/registry/ca:/etc/ssl/certs/ \ 
+ registry:2
+
+docker push 192.168.48.54:5000/google/cadvisor
+
+api
+authentification
+notifications
+
+portus
+```
+# 9. Continuous Integration
+
+https://github.com/sth35web/formationdocker/blob/master/Dockerfile
+https://hub.docker.com/r/sth35web/formationdocker/builds/
+```
+gitlabci
+```
+
+
+
+
