@@ -1,6 +1,4 @@
-Installing docker
------------------
-
+# 1. Installing docker
 ```
 #en root
 apt-get update
@@ -12,10 +10,7 @@ apt-get install docker-engine
 service docker start
 usermod -aG docker ubuntu
 ```
-
-introduction to images
-----------------------
-
+# 2. Introduction to images
 ```
 hub docker +
 docker search
@@ -24,10 +19,7 @@ images officielles
 
 tags
 ```
-
-managing container
-----------------------
-
+# 3. Managing containers
 ```
 --help
 
@@ -42,10 +34,7 @@ ps
 stats
 logs
 ```
-
-building images
----------------
-
+# 4. Building images
 ```
 les layers
 dockerfile
@@ -53,10 +42,7 @@ dockerfile
 https://github.com/sth35web/demodocker
 http://192.168.48.54/
 ```
-
-distributing images
--------------------
-
+# 5. Distributing images
 ```
 docker import /export
 public/private registry
@@ -64,9 +50,7 @@ docker tag
 docker push / pull
 docker rmi
 ```
-
-volumes 
--------
+# 6. Volumes 
 ```
 docker run -d -p 80:80 -v /home/ubuntu/demo/demo:/usr/share/nginx/html/demo  --name nginxsth nginxsth:latest
 
@@ -76,9 +60,7 @@ run -d -p 80:80 -v nginxhtml:/usr/share/nginx/html/demo  --name nginxsth nginxst
 
 echo toto > /var/lib/docker/volumes/nginxhtml/_data/index.html
 ```
-
-networking
-----------
+# 7. Networking
 ```
 docker network ls
 docker network inspect bridge
