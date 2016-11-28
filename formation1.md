@@ -15,7 +15,7 @@
 - Simplified maintenance
 
 
-## Drawbacks
+### Drawbacks
 
 
 # 1. Installing docker
@@ -93,7 +93,7 @@ docker network inspect bridge
 docker exec -ti nginxsth bash
   ping 172.17.0.4 => ok
 ```  
-![](https://success.docker.com/@api/deki/files/192/bridge1.png?revision=2)
+![](images/bridge1.png)
 
 ```
 docker network create --driver bridge isolated_nw
@@ -109,7 +109,7 @@ docker run -d -P --network=isolated_nw --name c2  nginxsth:latest
 docker exec -ti c1 bash
   ping c2 => ok
 ```  
-![](https://success.docker.com/@api/deki/files/193/bridge2.png?revision=2)
+![](images/bridge2.png)
 
 ```
 #exemple d'isolation :
