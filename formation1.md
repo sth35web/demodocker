@@ -83,9 +83,28 @@ run -d -p 80:80 -v nginxhtml:/usr/share/nginx/html/demo  --name nginxsth nginxst
 
 echo toto > /var/lib/docker/volumes/nginxhtml/_data/index.html
 ```
-![](https://docs.docker.com/engine/userguide/storagedriver/images/driver-pros-cons.png)
+https://docs.docker.com/engine/userguide/storagedriver/images/driver-pros-cons.png
 
 # 7. Networking
+
+### Port mapping
+
+Default:
+- Containers can make connections to the outside world
+- Outside world cannot connect to containers
+
+Mapping:
+- To accept incoming connections, specify option -P or -p IP:host_port:container_port in 'run' command
+- iptables -t nat -L -n
+
+### DNS
+
+Embedded DNS
+- Docker uses embedded DNS to provide service discovery for containers (127.0.0.11:53)
+- Key/value store in Docker Engine
+- Embedded DNS is network-scoped (Containers not on the same network cannot resolve each other's addresses)
+
+### Bridging
 ```
 docker network ls
 docker network inspect bridge
