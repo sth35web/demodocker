@@ -1,6 +1,25 @@
+# 0. Introduction
+
+## Vm vs container
+![](https://i0.wp.com/blog.docker.com/wp-content/uploads/2015/08/vm_container.png?w=761&ssl=1)
+
+## Build Ship Run
+![](https://www.docker.com/sites/default/files/info-6.png)
+
+## Advantages of running docker
+Rapid application deployment + testing
+Portability across machines
+Version control and component reuse
+Sharing
+Lightweight footprint and minimal overhead
+Simplified maintenance
+
+
+## Drawbacks
+
+
 # 1. Installing docker
 ```
-#en root
 apt-get update
 apt-get install -y apt-transport-https ca-certificates linux-image-extra-$(uname -r) linux-image-extra-virtual
 apt-key adv --keyserver hkp://p80.pool.sks-keyservers.net:80 --recv-keys 58118E89F3A912897C070ADBF76221572C52609D
@@ -12,10 +31,12 @@ usermod -aG docker ubuntu
 ```
 # 2. Introduction to images
 ```
+differences bw images and containers
+
 hub docker +
 docker search
 
-images officielles
+official images
 
 tags
 ```
@@ -35,10 +56,12 @@ stats
 logs
 ```
 # 4. Building images
-```
-les layers
-dockerfile
 
+## Images and layers
+![](https://docs.docker.com/engine/userguide/storagedriver/images/container-layers.jpg)
+
+## Dockerfile
+```
 https://github.com/sth35web/demodocker
 http://192.168.48.54/
 ```
@@ -60,6 +83,8 @@ run -d -p 80:80 -v nginxhtml:/usr/share/nginx/html/demo  --name nginxsth nginxst
 
 echo toto > /var/lib/docker/volumes/nginxhtml/_data/index.html
 ```
+![](https://docs.docker.com/engine/userguide/storagedriver/images/driver-pros-cons.png)
+
 # 7. Networking
 ```
 docker network ls
@@ -67,7 +92,10 @@ docker network inspect bridge
 
 docker exec -ti nginxsth bash
   ping 172.17.0.4 => ok
+```  
+![](https://success.docker.com/@api/deki/files/192/bridge1.png?revision=2)
 
+```
 docker network create --driver bridge isolated_nw
 docker run -d -P --network=isolated_nw nginxsth:latest
 docker network inspect isolated_nw
@@ -80,8 +108,10 @@ docker run -d -P --network=isolated_nw --name c1  nginxsth:latest
 docker run -d -P --network=isolated_nw --name c2  nginxsth:latest
 docker exec -ti c1 bash
   ping c2 => ok
+```  
+![](https://success.docker.com/@api/deki/files/193/bridge2.png?revision=2)
 
-
+```
 #exemple d'isolation :
 
 docker network create --driver bridge front
