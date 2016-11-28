@@ -1,18 +1,18 @@
 # 0. Introduction
 
-## Vm vs container
+### Vm vs container
 ![](https://i0.wp.com/blog.docker.com/wp-content/uploads/2015/08/vm_container.png?w=761&ssl=1)
 
-## Build Ship Run
+### Build Ship Run
 ![](https://www.docker.com/sites/default/files/info-6.png)
 
-## Advantages of running docker
-Rapid application deployment + testing
-Portability across machines
-Version control and component reuse
-Sharing
-Lightweight footprint and minimal overhead
-Simplified maintenance
+### Advantages of running docker
+- Rapid application deployment + testing
+- Portability across machines
+- Version control and component reuse
+- Sharing
+- Lightweight footprint and minimal overhead
+- Simplified maintenance
 
 
 ## Drawbacks
@@ -57,10 +57,10 @@ logs
 ```
 # 4. Building images
 
-## Images and layers
+### Images and layers
 ![](https://docs.docker.com/engine/userguide/storagedriver/images/container-layers.jpg)
 
-## Dockerfile
+### Dockerfile
 ```
 https://github.com/sth35web/demodocker
 http://192.168.48.54/
