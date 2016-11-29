@@ -188,19 +188,63 @@ GitLab CI in conjunction with GitLab Runner can use Docker Engine to test and bu
 - Consul, Etcd, and ZooKeeper
 - Configure docker engines to use the key-value store
 
+![](https://docs.docker.com/engine/userguide/networking/images/overlay_network.png)
+
 ### Overlay in swarm mode
 
 - Embedded key-value store
 
 
-![](https://docs.docker.com/engine/userguide/networking/images/overlay_network.png)
-
-
 ![](http://blog.nigelpoulton.com/wp-content/uploads/2016/10/figure8-8-768x515.png)
 
+### Plugins
+Nuage, Contrail, Midokura, etc...
 
 
 # 11. Docker machine
+
+Docker Machine enables you to 
+- Provision and manage multiple remote Docker hosts
+- Provision Swarm clusters
+
+![](https://docs.docker.com/machine/img/provision-use-case.png)
+
+Docker machine
+- Automatically creates hosts
+- Installs Docker Engine on them
+- Configures the docker clients (~/.docker)
+
+Driver:
+- AWS (ok) 
+- Openstack (ok)
+- Virtualbox (ok)
+- Azure
+- Google Compute Engine
+- VMware
+- ...
+
+Demo !
+
+```
+userkeyname=dockerkey
+myname=sth
+ 
+for instance in 1 2 3; do
+ docker-machine create --driver openstack \
+  --openstack-username xxxx \
+  --openstack-password xxxx \
+  --openstack-tenant-name docker \
+  --openstack-auth-url https://xxx:xxx/vxx \
+  --openstack-flavor-name m1.large \
+  --openstack-image-name Ubuntu-16.04 \
+  --openstack-ssh-user ubuntu \
+  --openstack-sec-groups default,docker \
+  --openstack-keypair-name $userkeyname \
+  --openstack-private-key-file .ssh/id_rsa \
+  docker$myname-node-$instance
+done
+```
+
 
 # 12. Docker compose
 
