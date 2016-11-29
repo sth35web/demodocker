@@ -6,10 +6,10 @@
  - go programming language
 
 ### Vm vs container
-![](https://i0.wp.com/blog.docker.com/wp-content/uploads/2015/08/vm_container.png?w=761&ssl=1)
+![](images/1.jpg)
 
 ### Build Ship Run
-![](https://www.docker.com/sites/default/files/info-6.png)
+![](images/2.png)
 
 ### Advantages of running docker
 - Rapid application deployment + testing
@@ -64,7 +64,7 @@ logs
 # 4. Building images
 
 ### Images and layers
-![](https://docs.docker.com/engine/userguide/storagedriver/images/container-layers.jpg)
+![](images/3.jpg)
 
 ### Dockerfile
 ```
@@ -188,14 +188,13 @@ GitLab CI in conjunction with GitLab Runner can use Docker Engine to test and bu
 - Consul, Etcd, and ZooKeeper
 - Configure docker engines to use the key-value store
 
-![](https://docs.docker.com/engine/userguide/networking/images/overlay_network.png)
+![](images/6.png)
 
 ### Overlay in swarm mode
 
 - Embedded key-value store
 
-
-![](http://blog.nigelpoulton.com/wp-content/uploads/2016/10/figure8-8-768x515.png)
+![](images/7.png)
 
 ### Plugins
 Nuage, Contrail, Midokura, etc...
@@ -207,7 +206,7 @@ Docker Machine enables you to
 - Provision and manage multiple remote Docker hosts
 - Provision Swarm clusters
 
-![](https://docs.docker.com/machine/img/provision-use-case.png)
+![](images/8.png)
 
 Docker machine
 - Automatically creates hosts
