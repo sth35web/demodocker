@@ -12,12 +12,12 @@
 ![](images/2.png)
 
 ### Advantages of running docker
-- Rapid application deployment + testing
-- Portability across machines
-- Version control and component reuse
-- Sharing
+- Rapid application deployment (infra as code) + testing
+- Portability across machines (hardware agnostic )
+- Version control and component reuse (tag , layers)
+- Sharing (registry)
 - Lightweight footprint and minimal overhead
-- Simplified maintenance
+- Simplified maintenance ( immutable infrastructure )
 
 
 ### Drawbacks
@@ -300,7 +300,49 @@ docker-compose down
 
 # 13. Docker Swarm
 
+(v1.12)
+
+Manage a cluster of Docker Engines
+- Scaling
+- State reconciliation
+- Multi-host networking
+- Service discovery
+- Load balancing
+- Rolling updates
+- ...
+
+```
+docker swarm init
+docker swarm join \
+     --token SWMTKN-1-454us0bn2gra0vqonrqqq1e0v7v2eu39u7cl3bj69lycdw2k04-cuxrhzwwdctr5yl6ikslp0kxe \
+     192.168.48.215:2377
+docker node promote dockersth-node-1
+```
+
+![](images/9.png)
+
+### Scheduling
+
+### Stack file (v1.13)
+
+### TLS
+
+![](images/10.png)
+
+### Routing mesh
+
+### Secrets management (v1.13)
+
+
 # 14. Security
 
+SANS Institute checklist:
+- Ensure good host security
+- Check Image Provenance
+- Monitor Containers
+- Do Not Run Container Processes as Root
+- Do Not Store Secrets in Containers
+- Base Image Security
+- Limit container resources
 
-
+https://www.sans.org/reading-room/whitepapers/auditing/checklist-audit-docker-containers-37437
