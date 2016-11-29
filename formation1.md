@@ -2,6 +2,7 @@
 
 ### Docker Container
  - cgroups and namespaces
+ - Union file systems
  - go programming language
 
 ### Vm vs container
@@ -171,22 +172,41 @@ portus
 ```
 # 9. Continuous Integration
 
+### Github -> dockerhub
 https://github.com/sth35web/formationdocker/blob/master/Dockerfile
 https://hub.docker.com/r/sth35web/formationdocker/builds/
-```
-gitlabci
-```
+
+### Gitlab CI
+GitLab CI in conjunction with GitLab Runner can use Docker Engine to test and build any application.
+
 # 10. Multihost networking
 
-# 11. Registry
 
-# 12. Docker machine
+### Overlay outside swarm mode
 
-# 13. Docker compose
+- Requires a valid key-value store service
+- Consul, Etcd, and ZooKeeper
+- Configure docker engines to use the key-value store
 
-# 14. Docker Swarm
+### Overlay in swarm mode
 
-# 15. Security
+- Embedded key-value store
+
+
+![](https://docs.docker.com/engine/userguide/networking/images/overlay_network.png)
+
+
+![](http://blog.nigelpoulton.com/wp-content/uploads/2016/10/figure8-8-768x515.png)
+
+
+
+# 11. Docker machine
+
+# 12. Docker compose
+
+# 13. Docker Swarm
+
+# 14. Security
 
 
 
