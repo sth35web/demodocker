@@ -1,5 +1,9 @@
 # 0. Introduction
 
+### Docker Container
+ - cgroups and namespaces
+ - go programming language
+
 ### Vm vs container
 ![](https://i0.wp.com/blog.docker.com/wp-content/uploads/2015/08/vm_container.png?w=761&ssl=1)
 
@@ -17,6 +21,7 @@
 
 ### Drawbacks
 
+- ...
 
 # 1. Installing docker
 ```
@@ -117,11 +122,11 @@ docker exec -ti c1 bash
 docker network create --driver bridge front
 docker network create --driver bridge back
 
-docker run -d -P --network=front --network=back --name front1  nginxsth
-docker run -d -P --network=front --network=back  --name front2  nginxsth
-docker run -d -P --network=front --network=back  --name front3  nginxsth
+docker run -d --net=front --name web  nginxsth
+docker run -d --net=front --name proxy  nginxsth
+docker network connect back proxy
+docker run -d --net=back  --name app  nginxsth
 
-docker run -d --network=back --name back1  nginxsth
 ```
 # 8. Registry
 
@@ -152,7 +157,17 @@ https://hub.docker.com/r/sth35web/formationdocker/builds/
 ```
 gitlabci
 ```
+# 10. Multihost networking
 
+# 11. Registry
+
+# 12. Docker machine
+
+# 13. Docker compose
+
+# 14. Docker Swarm
+
+# 15. Security
 
 
 
