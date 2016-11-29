@@ -209,6 +209,8 @@ GitLab CI in conjunction with GitLab Runner can use Docker Engine to test and bu
 
 - Embedded key-value store
 
+### Overlay VXLAN
+
 ![](images/7.png)
 
 ### Plugins
