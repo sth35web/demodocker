@@ -67,10 +67,25 @@ logs
 ![](images/3.jpg)
 
 ### Dockerfile
+Docker can build images automatically by reading the instructions from a Dockerfile
 ```
+docker build -t shykes/myapp .
+```
+Instructions:
+- FROM
+- MAINTAINER
+- RUN
+- ADD
+- ENV
+- EXPOSE
+- LABEL
+- USER
+- WORKDIR
+- VOLUME
+- ...
+
 https://github.com/sth35web/demodocker
 http://192.168.48.54/
-```
 # 5. Distributing images
 ```
 docker import /export
