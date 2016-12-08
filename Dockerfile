@@ -5,7 +5,7 @@ ENV VERSION=master
 
 RUN apt-get update && apt-get install -y curl && apt-get clean
 
-RUN curl -Ls https://github.com/sth35web/demodocker/raw/${version}/myapp.tar.gz | tar -xz -C /usr/share/nginx/html/
+RUN curl -Ls https://github.com/sth35web/demodocker/raw/${VERSION}/myapp.tar.gz | tar -xz -C /usr/share/nginx/html/
 
 
 # Add services configuration
