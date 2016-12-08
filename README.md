@@ -1,5 +1,9 @@
 # 0. Introduction
 
+### Container
+
+### Pets vs Cattle
+
 ### Docker Container
  - cgroups and namespaces
  - Union file systems
