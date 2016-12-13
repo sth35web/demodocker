@@ -200,7 +200,6 @@ GitLab CI in conjunction with GitLab Runner can use Docker Engine to test and bu
 
 # 10. Multihost networking
 
-
 ### Overlay outside swarm mode
 
 - Requires a valid key-value store service
@@ -220,6 +219,7 @@ GitLab CI in conjunction with GitLab Runner can use Docker Engine to test and bu
 ### Plugins
 Nuage, Contrail, Midokura, etc...
 
+### More in chapter "Swarm mode"
 
 # 11. Docker machine
 
@@ -277,12 +277,17 @@ Compose:
 - Tool for defining and running multi-container Docker applications
 - Create and start all the services from your configuration
 
-Intallation
+### Installation
 ```
 curl -L "https://github.com/docker/compose/releases/download/1.8.1/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
 chmod +x /usr/local/bin/docker-compose
 ```
 
+### Demo
+- Install wordpress
+- Install graylog 
+
+wordpress
 ```
 version: '2'
 
@@ -310,6 +315,30 @@ services:
        WORDPRESS_DB_PASSWORD: wordpress
 volumes:
     db_data:
+```
+
+wordpress
+```
+version: '2'
+services:
+  my-mongo:
+    image: "mongo:3"
+  my-elasticsearch:
+    image: "elasticsearch:2"
+    command: "elasticsearch -Des.cluster.name='graylog'"
+  graylog:
+    image: graylog2/server:2.1.1-1
+    environment:
+      GRAYLOG_PASSWORD_SECRET: somepasswordpepper
+      GRAYLOG_ROOT_PASSWORD_SHA2: 8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918
+      GRAYLOG_WEB_ENDPOINT_URI: http://192.168.48.54:9000/api
+    links:
+      - my-mongo:mongo
+      - my-elasticsearch:elasticsearch
+    ports:
+      - "9000:9000"
+      - "12201/udp:12201/udp"
+      - "1514/udp:1514/udp"
 ```
 
 docker-compose up
