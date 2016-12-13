@@ -391,6 +391,15 @@ docker node promote dockersth-node-1
 
 ### Secrets management (v1.13)
 
+### Demo
+- Create a galera cluster
+- Create a worpress service
+- Check galera and worpress :
+    - auto healing
+    - scaling
+    - internal and external load balancing
+    
+
 
 # 14. Security
 
