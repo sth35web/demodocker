@@ -317,15 +317,19 @@ volumes:
     db_data:
 ```
 
-wordpress
+graylog
 ```
 version: '2'
 services:
   my-mongo:
     image: "mongo:3"
+    volumes:
+      - mongo_data:/data/db
   my-elasticsearch:
     image: "elasticsearch:2"
     command: "elasticsearch -Des.cluster.name='graylog'"
+    volumes:
+      - es_data:/usr/share/elasticsearch/data
   graylog:
     image: graylog2/server:2.1.1-1
     environment:
@@ -339,13 +343,17 @@ services:
       - "9000:9000"
       - "12201/udp:12201/udp"
       - "1514/udp:1514/udp"
+volumes:
+    mongo_data:
+    es_data:
+
 ```
 
-docker-compose up
-docker-compose ps
-docker-compose scale db=2
-docker-compose down
-...
+- docker-compose -f ./wordpress/docker-compose.yml -f ./graylog/docker-compose.yml  up -d
+- docker-compose ps
+- docker-compose scale db=2
+- docker-compose down
+- ...
 
 
 # 13. Docker Swarm
