@@ -393,12 +393,11 @@ docker node promote dockersth-node-1
 
 ### Demo
 - Create a galera cluster
-- Create a worpress service
-- Check galera and worpress :
+- Create a wordpress service
+- Check galera and wordpress :
     - auto healing
     - scaling
     - internal and external load balancing
-    
 
 
 # 14. Security
