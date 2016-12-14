@@ -411,7 +411,7 @@ docker node promote dockersth-node-1
 
 #### Data plane
 
-IPSEC tunnels with AES algorithm between nodes. Keys are automatically roteted by managers every 12 hours.
+IPSEC tunnels with AES algorithm between nodes. Keys are automatically rotated by managers every 12 hours.
 ```
 docker network create --opt encrypted --driver overlay my-multi-host-network
 ```
@@ -425,6 +425,7 @@ The new Docker Swarm mode introduced in 1.12 comes with a native internal and ex
 2 options (--endpoint-mode )
 - DNS RR
 - IPVS
+
 ##### DNS
  The Docker DNS server resolves a service name to individual container IPs in round robin fashion
 
@@ -460,6 +461,31 @@ You can expose services externally by using the --publish flag when creating or 
     - scaling
     - internal and external load balancing
 
+```
+docker network create --driver overlay mynet
+
+docker service create \ 
+--name mysql-galera \
+--replicas 3 \
+-p 3306:3306 \
+--network mynet \
+--env MYSQL_ROOT_PASSWORD=mypassword \
+--env DISCOVERY_SERVICE=192.168.48.158:2379 \
+--env XTRABACKUP_PASSWORD=mypassword \
+--env CLUSTER_NAME=galera \
+perconalab/percona-xtradb-cluster:5.6
+
+
+docker service create \
+--name wordpress \
+--replicas 2 \
+-p 80:80 \
+--network mynet \
+--env WORDPRESS_DB_HOST=mysql-galera \
+--env WORDPRESS_DB_USER=root \
+--env WORDPRESS_DB_PASSWORD=mypassword \
+wordpress
+```
 
 # 14. Security
 
