@@ -26,7 +26,8 @@
 
 ### Drawbacks
 
-- ...
+- Be aware of security
+- Don't use it for monolitic application
 
 # 1. Installing docker
 ```
@@ -381,15 +382,43 @@ docker node promote dockersth-node-1
 
 ### Scheduling
 
-### Stack file (v1.13)
+#### Strategies
+- spread
+- binpack
+- random
+#### Filters
+- node constraint filter
+  - node name
+  - label
+  - storage driver 
+  - etc
+- container filters
+  - affinity
+  - label
+  - etc
 
-### TLS
+### Encryption
+
+#### Control plane
+
+- A CA is created with swarm init on the manager nodes
+- All communication is encrypted over TLS.
+- The node keys and certificates are automatically renewed (default 90 days)
 
 ![](images/10.png)
+
+#### Data plane
+
+IPSEC tunnels with AES algorithm between nodes. Keys are automatically roteted by managers every 12 hours.
+```
+docker network create --opt encrypted --driver overlay my-multi-host-network
+```
 
 ### Routing mesh
 
 ### Secrets management (v1.13)
+
+### Stack file (v1.13)
 
 ### Demo
 - Create a galera cluster
