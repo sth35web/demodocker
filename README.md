@@ -28,6 +28,7 @@
 
 - Be aware of security
 - Don't use it for monolitic application
+- You should respect some best practices (https://github.com/docker/labs/tree/master/12factor)
 
 # 1. Installing docker
 ```
@@ -386,6 +387,7 @@ docker node promote dockersth-node-1
 - spread
 - binpack
 - random
+
 #### Filters
 - node constraint filter
   - node name
@@ -414,7 +416,37 @@ IPSEC tunnels with AES algorithm between nodes. Keys are automatically roteted b
 docker network create --opt encrypted --driver overlay my-multi-host-network
 ```
 
-### Routing mesh
+### Load balancing
+
+The new Docker Swarm mode introduced in 1.12 comes with a native internal and external load balancing functionalities that utilize both iptables and ipvs
+
+#### Internal Load Balancing
+
+2 options (--endpoint-mode )
+- DNS RR
+- IPVS
+##### DNS
+ The Docker DNS server resolves a service name to individual container IPs in round robin fashion
+
+##### IPVS
+When services are created in a Docker Swarm cluster, they are automatically assigned a Virtual IP (VIP) that is part of the service's network.
+```
+$ docker service inspect myservice
+...
+
+"VirtualIPs": [
+                {
+                    "NetworkID": "a59umzkdj2r0ua7x8jxd84dhr",
+                    "Addr": "10.0.0.3/24"
+                },
+]
+```
+
+#### External Load Balancing (Docker Routing Mesh)
+
+You can expose services externally by using the --publish flag when creating or updating the service. Publishing ports in Docker Swarm mode means that every node in your cluster will be listening on that port.
+
+![](images/11.png)
 
 ### Secrets management (v1.13)
 
