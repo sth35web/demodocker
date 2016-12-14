@@ -464,14 +464,12 @@ You can expose services externally by using the --publish flag when creating or 
 ```
 docker network create --driver overlay mynet
 
-docker service create \ 
+docker service create \
 --name mysql-galera \
 --replicas 3 \
--p 3306:3306 \
 --network mynet \
 --env MYSQL_ROOT_PASSWORD=mypassword \
 --env DISCOVERY_SERVICE=192.168.48.158:2379 \
---env XTRABACKUP_PASSWORD=mypassword \
 --env CLUSTER_NAME=galera \
 perconalab/percona-xtradb-cluster:5.6
 
