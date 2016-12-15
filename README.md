@@ -1,19 +1,31 @@
 # 0. Introduction
 
-### Container
+### Container based virtualization
+
+- Isolated systems
+- Containers share the same OS kernel 
+- Containers hold the components necessary to run the desired software
+
+![](images/vmvsproc.png)
+
+![](images/vmvscontainer.png)
+
+![](images/1.jpg)
 
 ### Pets vs Cattle
+
+<img src="images/pets.jpg" width="300">
+
+<img src="images/cattle.jpg" width="300">
 
 ### Docker Container
  - cgroups and namespaces
  - Union file systems
  - go programming language
 
-### Vm vs container
-![](images/1.jpg)
-
 ### Build Ship Run
 ![](images/2.png)
+
 
 ### Advantages of running docker
 - Rapid application deployment (infra as code) + testing
