@@ -170,7 +170,7 @@ docker run -d -P --network=isolated_nw --name c2  nginxsth:latest
 docker exec -ti c1 bash
   ping c2 => ok
 ```  
-![](images/bridge2.png)
+<img src="images/bridge2.png" width="500">
 
 ```
 #exemple d'isolation :
@@ -231,7 +231,7 @@ GitLab CI in conjunction with GitLab Runner can use Docker Engine to test and bu
 
 ### Overlay VXLAN
 
-![](images/7.png)
+<img src="images/7.png" width="500">
 
 ### Plugins
 Nuage, Contrail, Midokura, etc...
@@ -422,7 +422,7 @@ docker node promote dockersth-node-1
 - All communication is encrypted over TLS.
 - The node keys and certificates are automatically renewed (default 90 days)
 
-<img src="images/10.png" width="300">
+<img src="images/10.png" width="400">
 
 #### Data plane
 
