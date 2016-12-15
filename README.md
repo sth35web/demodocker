@@ -10,7 +10,7 @@
 
 ![](images/vmvscontainer.png)
 
-![](images/1.jpg)
+<img src="images/1.jpg" width="500">
 
 ### Pets vs Cattle
 
@@ -82,7 +82,10 @@ logs
 # 4. Building images
 
 ### Images and layers
-![](images/3.jpg)
+
+<img src="images/3.jpg" width="500">
+
+<img src="images/layers.jpg" width="500">
 
 ### Dockerfile
 Docker can build images automatically by reading the instructions from a Dockerfile
