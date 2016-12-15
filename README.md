@@ -85,7 +85,7 @@ logs
 
 <img src="images/3.jpg" width="500">
 
-<img src="images/layers.jpg" width="500">
+<img src="images/layers.png" width="500">
 
 ### Dockerfile
 Docker can build images automatically by reading the instructions from a Dockerfile
@@ -422,7 +422,7 @@ docker node promote dockersth-node-1
 - All communication is encrypted over TLS.
 - The node keys and certificates are automatically renewed (default 90 days)
 
-![](images/10.png)
+<img src="images/10.png" width="300">
 
 #### Data plane
 
