@@ -10,7 +10,7 @@
 
 ![](images/vmvscontainer.png)
 
-<img src="images/1.jpg" width="500">
+<img src="images/1.png" width="500">
 
 ### Pets vs Cattle
 
