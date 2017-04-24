@@ -73,17 +73,19 @@ service docker start
 usermod -aG docker ubuntu
 ```
 # 2. Introduction to images
-```
-differences bw images and containers
 
-hub docker +
-docker search
+### Differences bw images and containers :
+- An image is an inert, immutable, file that's essentially a snapshot of a container
+- A container is a running instance of that image
 
-official images
+### Where to find images :
+- Docker Hub
+- Build your own and store it in a private registry
 
-tags
-```
+
 # 3. Managing containers
+
+Intro to cli :
 ```
 --help
 
@@ -106,6 +108,15 @@ logs
 
 <img src="images/layers.png" width="500">
 
+### Images management
+```
+docker import /export
+public/private registry
+docker tag
+docker push / pull
+docker rmi
+```
+
 ### Dockerfile
 Docker can build images automatically by reading the instructions from a Dockerfile
 ```
@@ -126,14 +137,8 @@ Instructions:
 
 https://github.com/sth35web/demodocker
 http://192.168.48.54/
-# 5. Distributing images
-```
-docker import /export
-public/private registry
-docker tag
-docker push / pull
-docker rmi
-```
+
+
 # 6. Volumes 
 ```
 docker run -d -p 80:80 -v /home/ubuntu/demo/demo:/usr/share/nginx/html/demo  --name nginxsth nginxsth:latest
